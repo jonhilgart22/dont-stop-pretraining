@@ -86,8 +86,8 @@ Just supply a model type and serialization directory, like so:
 
 ```bash
 python -m scripts.download_model \
-        --model allenai/dsp_roberta_base_dapt_cs_tapt_citation_intent_1688 \
-        --serialization_dir $(pwd)/pretrained_models/dsp_roberta_base_dapt_cs_tapt_citation_intent_1688
+        --model allenai/dsp_roberta_base_dapt_reviews_tapt_amazon_helpfulness_115K \
+        --serialization_dir $(pwd)/pretrained_models/dsp_roberta_base_dapt_reviews_tapt_amazon_helpfulness_115K
 ```
 
 This will output the `allenai/dsp_roberta_base_dapt_cs_tapt_citation_intent_1688` model for Citation Intent corpus in `$(pwd)/pretrained_models/dsp_roberta_base_dapt_cs_tapt_citation_intent_1688`
@@ -116,7 +116,7 @@ python -m scripts.train \
         --config training_config/classifier.jsonnet \
         --serialization_dir model_logs/citation_intent_base \
         --hyperparameters ROBERTA_CLASSIFIER_SMALL \
-        --dataset citation_intent \
+        --dataset amazon \
         --model roberta-base \
         --device 0 \
         --perf +f1 \
@@ -130,8 +130,8 @@ python -m scripts.train \
         --config training_config/classifier.jsonnet \
         --serialization_dir model_logs/citation-intent-dapt-dapt \
         --hyperparameters ROBERTA_CLASSIFIER_SMALL \
-        --dataset citation_intent \
-        --model $(pwd)/pretrained_models/dsp_roberta_base_dapt_cs_tapt_citation_intent_1688 \
+        --dataset amazon \
+        --model $(pwd)/pretrained_models/dsp_roberta_base_dapt_reviews_tapt_amazon_helpfulness_115K \
         --device 0 \
         --perf +f1 \
         --evaluate_on_test

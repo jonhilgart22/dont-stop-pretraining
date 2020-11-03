@@ -171,7 +171,7 @@ local CHECKPOINTER = {
     "trainer": {
         "num_epochs": NUM_EPOCHS,
         "patience": 3,
-        "cuda_device": std.parseInt(std.extVar("CUDA_DEVICE")),
+        "cuda_device": "-1", #std.parseInt(std.extVar("CUDA_DEVICE")),
         "validation_metric": VALIDATION_METRIC,
         "optimizer": PRETRAINED_ROBERTA_FIELDS(ROBERTA_TRAINABLE)['optimizer'],
         "gradient_accumulation_batch_size": GRAD_ACC,
